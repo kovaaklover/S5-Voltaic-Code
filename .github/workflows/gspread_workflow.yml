@@ -31,4 +31,4 @@ jobs:
         GSPREAD_CREDENTIALS: ${{ secrets.GSPREAD_CREDENTIALS }}  # Use the secret
       run: |
         echo "${{ secrets.GSPREAD_CREDENTIALS }}" > credentials.json
-        python KovaakTablePull_VTS4_VoltsR0.py
+        python KovaakTablePull_VTS5_VoltsR0.py
