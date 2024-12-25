@@ -5,6 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import json
+import os
 
 # KOVAAKs LEADERBOARD IDs
 Leaderboard_ID = [
@@ -344,24 +346,25 @@ header = ['PlayerID',
 header1 = [header[0]] + header[109:]
 
 # CSV PRINT
-csv_file = 'output.csv'
-with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
-    writer = csv.writer(file)
-    writer.writerow(header)
-    for key, values in Score_Dic_S.items():
-        if values[112] > 0 or values[113] > 0 or values[114] > 0:
-            if values[111] is not None:
-                values[111] = values[111].encode('ascii', 'ignore').decode('ascii')
-            else:
-                values[111] = ''
+#csv_file = 'output.csv'
+#with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
+#    writer = csv.writer(file)
+#    writer.writerow(header)
+#    for key, values in Score_Dic_S.items():
+#        if values[112] > 0 or values[113] > 0 or values[114] > 0:
+#            if values[111] is not None:
+#                values[111] = values[111].encode('ascii', 'ignore').decode('ascii')
+#            else:
+#                values[111] = ''
 
-            writer.writerow([key] + values)
+#            writer.writerow([key] + values)
 
 # GOOGLE SHEETS API
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
 # JSON CREDENTIAL FILE PATH
-creds = ServiceAccountCredentials.from_json_keyfile_name('C:\\Users\\jmolv\\Documents\\Python\\light-cathode-438221-f7-2204f7f61353.json', scope)
+creds_dict = json.loads(os.getenv('GSPREAD_CREDENTIALS'))
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 
 # AUTHORIZE THE CLIENT
 client = gspread.authorize(creds)
