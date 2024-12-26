@@ -196,14 +196,14 @@ for key, values in Score_Dic.items():
     RankA = values[90:108]
 
     # CALCULATE RANK VOLTS
-    RN = statistics.harmonic_mean([max(RankN[0:2]), max(RankN[2:4]), max(RankN[6:8]), max(RankN[8:10]), max(RankN[12:14]), max(RankN[14:16]), max(RankN[16:18])])
-    values[112] = RN
+    RN = statistics.harmonic_mean([int(max(RankN[0:2])), int(max(RankN[2:4])), int(max(RankN[4:6])), int(max(RankN[6:8])), int(max(RankN[8:10])), int(max(RankN[10:12])), int(max(RankN[12:14])), int(max(RankN[14:16])), int(max(RankN[16:18]))])
+    values[112] = int(RN)
 
-    RI = statistics.harmonic_mean([max(RankI[0:2]), max(RankI[2:4]), max(RankI[6:8]), max(RankI[8:10]), max(RankI[12:14]), max(RankI[14:16]), max(RankI[16:18])])
-    values[113] = RI
+    RI = statistics.harmonic_mean([int(max(RankI[0:2])), int(max(RankI[2:4])), int(max(RankI[4:6])), int(max(RankI[6:8])), int(max(RankI[8:10])), int(max(RankI[10:12])), int(max(RankI[12:14])), int(max(RankI[14:16])), int(max(RankI[16:18]))])
+    values[113] = int(RI)
 
-    RA = statistics.harmonic_mean([max(RankA[0:2]), max(RankA[2:4]), max(RankA[6:8]), max(RankA[8:10]), max(RankA[12:14]), max(RankA[14:16]), max(RankA[16:18])])
-    values[114] = RA
+    RA = statistics.harmonic_mean([int(max(RankA[0:2])), int(max(RankA[2:4])),int(max(RankA[4:6])), int(max(RankA[6:8])), int(max(RankA[8:10])), int(max(RankA[10:12])), int(max(RankA[12:14])), int(max(RankA[14:16])), int(max(RankA[16:18]))])
+    values[114] = int(RA)
 
     # CALCULATE RANK FROM RANK VOLTS NOVICE
     for i in range(0, 5):
