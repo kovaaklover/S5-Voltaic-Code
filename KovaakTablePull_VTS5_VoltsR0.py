@@ -273,7 +273,7 @@ for key, values in Score_Dic.items():
     if values[112] > 0 or values[113] > 0 or values[114] > 0:
         Count += 1
 
-# SORT NOVICE VOLTS THEN INTERMEDIATE VOLTS THEN ADVANCED COMPLETE POINTS
+# SORT NOVICE COMPLETE POINTS THEN INTERMEDIATE COMPLETE POINTS THEN ADVANCED COMPLETE POINTS
 Score_Dic_S = dict(sorted(Score_Dic.items(), key=lambda item: (item[1][110], item[1][109], item[1][108]), reverse=True))
 Per = 0
 for key, values in Score_Dic_S.items():
