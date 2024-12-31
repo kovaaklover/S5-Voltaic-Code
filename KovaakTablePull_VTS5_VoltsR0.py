@@ -371,6 +371,36 @@ client = gspread.authorize(creds)
 
 # OPEN GOOGLE SHEET
 sheet = client.open('S5_Voltaic').sheet1
+sheet1 = client.open('S5_Voltaic_1').sheet1
+sheet2 = client.open('S5_Voltaic_2').sheet1
+sheet3 = client.open('S5_Voltaic_3').sheet1
+sheet4 = client.open('S5_Voltaic_4').sheet1
+sheet5 = client.open('S5_Voltaic_5').sheet1
+sheet6 = client.open('S5_Voltaic_6').sheet1
+
+sheet6.clear()
+data = sheet5.get_all_values()
+sheet6.update('A1', data)
+
+sheet5.clear()
+data = sheet4.get_all_values()
+sheet5.update('A1', data)
+
+sheet4.clear()
+data = sheet3.get_all_values()
+sheet4.update('A1', data)
+
+sheet3.clear()
+data = sheet2.get_all_values()
+sheet3.update('A1', data)
+
+sheet2.clear()
+data = sheet1.get_all_values()
+sheet2.update('A1', data)
+
+sheet1.clear()
+data = sheet.get_all_values()
+sheet1.update('A1', data)
 
 # CLEAR EXISTING DATA IN GOOGLE SHEET
 sheet.clear()
